@@ -31,22 +31,26 @@ class exptree
     };
     class variable : public node
     {
+        public:
         variable();
         virtual double eval(double x);
     };
     class number : public node
     {
+        public:
+
         double val;
         number(double _val):val(_val){};
         virtual double eval(double x);
     };
     class oper : public node
     {
-
+        public:
         oper(type _t);
         virtual double eval(double x);
     };
     node root;
-
     exptree(node &&_root);
+    exptree(double val);
+    double eval(double x);
 };

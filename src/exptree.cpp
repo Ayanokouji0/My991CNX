@@ -63,3 +63,8 @@ double exptree::oper::eval(double x)
 }
 
 exptree::exptree(node &&_root):root(_root){};
+exptree::exptree(double val):root(number(val)){};
+double exptree::eval(double x)
+{
+    return root.eval(x);
+}
