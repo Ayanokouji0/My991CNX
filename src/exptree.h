@@ -1,8 +1,10 @@
+#include <stdlib.h>
 #include <vector>
+#include <string>
 class exptree
 {
     public:
-    typedef enum type
+    enum type
     {
         add,
         sub,
@@ -28,29 +30,40 @@ class exptree
         type nodetype;
         virtual double eval(double x);
         std::vector<node> children;
+        virtual std::string to_latex(node *selected);
+        
     };
     class variable : public node
     {
         public:
         variable();
         virtual double eval(double x);
+        virtual std::string to_latex(node *selected);
+
     };
     class number : public node
     {
         public:
 
         double val;
-        number(double _val):val(_val){};
+        number(double _val);
         virtual double eval(double x);
+        virtual std::string to_latex(node *selected);
+
     };
     class oper : public node
     {
         public:
         oper(type _t);
         virtual double eval(double x);
+        virtual std::string to_latex(node *selected);
+
     };
     node root;
     exptree(node &&_root);
     exptree(double val);
     double eval(double x);
+    
+    std::string to_latex(node *selected);
 };
+
