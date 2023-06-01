@@ -28,9 +28,9 @@ class exptree
     {
         public:
         type nodetype;
-        virtual double eval(double x);
+        virtual double eval(double x) = 0;
         std::vector<node> children;
-        virtual std::string to_latex(node *selected);
+        virtual std::string to_latex(node *selected) = 0;
         
     };
     class variable : public node
@@ -59,8 +59,8 @@ class exptree
         virtual std::string to_latex(node *selected);
 
     };
-    node root;
-    exptree(node &&_root);
+    node *root;
+    exptree(node &_root);
     exptree(double val);
     double eval(double x);
     

@@ -142,14 +142,14 @@ std::string exptree::oper::to_latex(node *selected)
     return ret;
 }
 
-exptree::exptree(node &&_root):root(_root){};
-exptree::exptree(double val):root(number(val)){};
+exptree::exptree(node &_root):root(&_root){};
+exptree::exptree(double val):root(new number(val)){};
 double exptree::eval(double x)
 {
-    return root.eval(x);
+    return root->eval(x);
 }
 
 std::string exptree::to_latex(node *selected)
 {
-    return "$$"+root.to_latex(selected)+"$$";
+    return root->to_latex(selected);
 }  
