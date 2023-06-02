@@ -6,24 +6,288 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>556</width>
+    <height>594</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="gridLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>200</y>
+      <width>71</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="LeftLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>200</y>
+      <width>81</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="RightLayout"/>
+   </widget>
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>160</width>
-      <height>80</height>
+      <width>551</width>
+      <height>171</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout"/>
+    <layout class="QGridLayout" name="SVGLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>250</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="SqrtLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_5">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>250</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="FracLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_6">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>200</y>
+      <width>261</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="InputLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_7">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>250</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="PowLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_8">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>250</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="DelLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_9">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>250</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="ACLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_10">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>300</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="DivLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_11">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>300</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="MulLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_12">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>300</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="LogLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_13">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>300</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="LnLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_14">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>300</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="AbsLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_15">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>350</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="SubLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_16">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>350</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="AddLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_17">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>350</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="SinLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_18">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>350</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="CosLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_19">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>350</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="TanLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_20">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>400</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="EvalLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_21">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>400</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="VarLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_22">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>400</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="SecLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_23">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>400</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="CscLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_24">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>400</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="CotLayout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_25">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>200</y>
+      <width>81</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="EvalXLayout"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -31,13 +295,15 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>25</height>
+     <width>556</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

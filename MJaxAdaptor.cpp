@@ -30,7 +30,8 @@ void MJaxAdaptor::MJaxSend(QString latex, QString svg1, QString svg2)
     QRegularExpression s2("(<svg .+?>)");
 
     svg1 = svg1.replace(s1, " ");
-    emit rendered(latex, svg2.replace(s2, "\\1" + svg1).toUtf8());
+    m_cache.insert(latex, new QByteArray(svg2.replace(s2, "\\1" + svg1).toUtf8()));
+    emit rendered(latex, m_cache[latex]->constData());
 }
 
 void MJaxAdaptor::MJaxError(QString errorMessage)
@@ -46,6 +47,11 @@ void MJaxAdaptor::MJaxLoaded()
 void MJaxAdaptor::render(const QString& latex)
 {
     QString tex = latex;
+    if (m_cache.contains(latex)) {
+        emit rendered(latex, m_cache[latex]->constData());
+
+		return;
+	}
     tex = tex.replace("\\", "\\\\")
               .replace("'", "\\'")
               .replace("\n", "\\\n");
@@ -72,7 +78,7 @@ void MJaxAdaptor::load()
 void MJaxAdaptor::onPageLoaded(bool result)
 {
     if (result) {
-        if (m_page != nullptr) delete m_page;
+        //if (m_page != nullptr) delete m_page;
         m_page = m_view->page();
         QFile apiFile(":/qtwebchannel/qwebchannel.js"); //load the API from the resources
         if (!apiFile.open(QIODevice::ReadOnly))

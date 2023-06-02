@@ -4,8 +4,13 @@
 #include <QMainWindow>
 #include <QStackedLayout>
 #include <QSvgWidget>
+#include <QGridLayout>
+#include <QLabel>
+#include <QLineEdit>
+#include <QPushButton>
 #include "TexSvg.h"
 #include "exptree.h"
+//#include "EvalPopUpWidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,12 +25,37 @@ public:
     ~MainWindow();
     QSvgWidget *SvgW;
     TexSVG *m_texsvg;
-    exptree m_tree = exptree(0);
+    exptree *m_tree;
+    QPushButton *LeftPshBtn;
+    QPushButton *RightPshBtn;
+    QPushButton* FracPshBtn;
+    QPushButton* SqrtPshBtn;
+    QPushButton* PowPshBtn;
+    QPushButton* LogPshBtn;
+    QPushButton* LnPshBtn;
+    QPushButton* AbsPshBtn;
+    QPushButton* SinPshBtn;
+    QPushButton* CosPshBtn;
+    QPushButton* TanPshBtn;
+    QPushButton* SecPshBtn;
+    QPushButton* CscPshBtn;
+    QPushButton* CotPshBtn;
+    QPushButton* MulPshBtn;
+    QPushButton* DivPshBtn;
+    QPushButton* AddPshBtn;
+    QPushButton* SubPshBtn;
+    QPushButton *DelPshBtn;
+    QPushButton *ACPshBtn;
+    QPushButton *EvalPshBtn;
+    QPushButton *VarPshBtn;
+    QPushButton *EvalXPshBtn;
+    QLineEdit *NumEdit;
 
+    //EvalPopUpWidget *EvalPopUp;
 
-public slots:
-//    void loadSvg(bool isLoaded);
+    void loadSvg();
     void updSvg(QString latex, QByteArray svg);
+
 
 private:
     Ui::MainWindow *ui;
