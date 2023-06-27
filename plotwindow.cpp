@@ -11,7 +11,7 @@ PlotWindow::PlotWindow(QWidget *parent)
     customplot=ui->customPlot;
     setWindowFlags(Qt::Window);
 	//设置窗口大小
-	setFixedSize(QSize(600, 400));
+	setFixedSize(QSize(640, 300));
 
 }
 
