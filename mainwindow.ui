@@ -289,6 +289,17 @@
     </property>
     <layout class="QGridLayout" name="EvalXLayout"/>
    </widget>
+   <widget class="QWidget" name="gridLayoutWidget_26">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>450</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="PltLayout"/>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -296,7 +307,7 @@
      <x>0</x>
      <y>0</y>
      <width>556</width>
-     <height>22</height>
+     <height>34</height>
     </rect>
    </property>
   </widget>

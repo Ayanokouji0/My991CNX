@@ -10,9 +10,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(QRC_SOURCE_FILES resources.qrc)
 
-set(CMAKE_PREFIX_PATH "D:/Qt/6.5.1/msvc2019_64")
+# set(CMAKE_PREFIX_PATH "D:/Qt/6.5.1/msvc2019_64")
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets printsupport)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 find_package(Qt6 REQUIRED COMPONENTS Network SvgWidgets WebEngineWidgets Gui)
 
@@ -25,13 +25,20 @@ set(PROJECT_SOURCES
         TexSvg.cpp
         MJaxAdaptor.cpp
         exptree.cpp
+        plotwindow.cpp
+        plot.cpp
+        qcustomplot.cpp
         #EvalPopUpWidget.cpp
         mainwindow.h
         TexSvg.h
         MJaxAdaptor.h
         exptree.h
+        plotwindow.h
+        plot.h
+        qcustomplot.h
         #EvalPopUpWidget.h
         mainwindow.ui
+        plotwindow.ui
         #EvalPopUpWidget.ui
         ${QRC_SOURCE_FILES}
         ${QRC_FILES}
@@ -62,7 +69,9 @@ else()
     endif()
 endif()
 
-target_link_libraries(My991CNX PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_include_directories(My991CNX PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+target_link_libraries(My991CNX PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::PrintSupport)
 target_link_libraries(My991CNX PRIVATE Qt6::Network Qt6::SvgWidgets Qt6::WebEngineWidgets Qt6::Gui)
 
 set_target_properties(My991CNX PROPERTIES

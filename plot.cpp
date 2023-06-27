@@ -1,21 +1,28 @@
-#include"qcustomplot.h"
+#include "qcustomplot.h"
 #include "plot.h"
-#include<QPushButton>
-#include"mainwindow_.h"
+#include <QPushButton>
+#include "plotwindow.h"
+#include "exptree.h"
 #include <stdlib.h>
 #include <time.h>
 Plot::Plot()
 {
 
 }
-Plot::Plot(MainWindow * parent){
-    QPushButton but;
-    but.setText("绘图");
-    but.setParent(parent);
-    but.show();
+Plot::Plot(PlotWindow* parent){
+    // QPushButton but;
+    // but.setText("绘图");
+    // but.setParent(parent);
+    // but.show();
 
 };
-void Plot::makeplot(double func (double),MainWindow & w,bool calculus=false){
+// void Plot::slot_plot(exptree *tree){
+//     PlotWindow * w = new PlotWindow();
+//     w->show();
+//     makeplot(tree->eval,*w);
+// }
+void Plot::makeplot(exptree *tree,PlotWindow & w,bool calculus=false){
+    w.show();
     QVector<double> x(3000), y(3000); //初始化向量x和y
     /* double minx=999999;
     double maxx=-999999;
@@ -24,7 +31,7 @@ void Plot::makeplot(double func (double),MainWindow & w,bool calculus=false){
     for (int i=0; i<3000; ++i)
     {
         x[i] = i/50.0 - 1; //
-        y[i] = func(x[i]); //
+        y[i] = tree->eval(x[i]); //
     }
    // w.customplot->xAxis->setRange(-100, 100);
     //w.customplot->yAxis->setRange(-100, 100);

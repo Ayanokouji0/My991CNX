@@ -10,6 +10,7 @@
 #include <QPushButton>
 #include "TexSvg.h"
 #include "exptree.h"
+#include "plot.h"
 //#include "EvalPopUpWidget.h"
 
 QT_BEGIN_NAMESPACE
@@ -26,6 +27,8 @@ public:
     QSvgWidget *SvgW;
     TexSVG *m_texsvg;
     exptree *m_tree;
+    PlotWindow *pltw;
+    Plot *plt;
     QPushButton *LeftPshBtn;
     QPushButton *RightPshBtn;
     QPushButton* FracPshBtn;
@@ -49,6 +52,7 @@ public:
     QPushButton *EvalPshBtn;
     QPushButton *VarPshBtn;
     QPushButton *EvalXPshBtn;
+    QPushButton *PltPshBtn;
     QLineEdit *NumEdit;
 
     //EvalPopUpWidget *EvalPopUp;

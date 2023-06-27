@@ -10,6 +10,16 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    // plt
+    pltw = new PlotWindow(this);
+    // pltw->setWindowFlags(Qt::Popup);
+    pltw->setWindowModality(Qt::WindowModal);
+
+	plt = new Plot(pltw);
+	// connect(pltw->customplot, &QCustomPlot::mouseMove,
+	// 	this, &MainWindow::mouseMove);
+	// connect(pltw->customplot, &QCustomPlot::mousePress, 
+
     // svg
     SvgW = new QSvgWidget(this);
     ui->SVGLayout->addWidget(SvgW);
@@ -173,6 +183,14 @@ MainWindow::MainWindow(QWidget *parent)
 	//connect(EvalXPshBtn, &QPushButton::clicked,
 	//	m_tree, [=](){m_tree->slot_eval(x)});
 
+	PltPshBtn = new QPushButton(this);
+	PltPshBtn->setText("Plot");
+	ui->PltLayout->addWidget(PltPshBtn);
+	connect(PltPshBtn, &QPushButton::clicked,
+        plt, [=](){
+        plt->makeplot(m_tree, *pltw, false);
+    });
+
 	// line edit
 	NumEdit = new QLineEdit(this);
 	ui->InputLayout->addWidget(NumEdit);
@@ -184,7 +202,7 @@ MainWindow::MainWindow(QWidget *parent)
     // init
     m_texsvg->load();
     m_texsvg->render(m_tree->to_latex().c_str());
-    
+
 }
 
 MainWindow::~MainWindow()

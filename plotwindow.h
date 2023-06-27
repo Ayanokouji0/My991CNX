@@ -1,16 +1,16 @@
 
-#ifndef MAINWINDOW__H
-#define MAINWINDOW__H
+#ifndef PLOTWINDOW__H
+#define PLOTWINDOW__H
 
-#include <QMainWindow>
+#include <QWidget>
 #include "qcustomplot.h"
 
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui { class PlotWindow; }
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
+class PlotWindow : public QWidget
 
 {
     Q_OBJECT
@@ -19,17 +19,17 @@ class MainWindow : public QMainWindow
 
 public:
     QCustomPlot * customplot;
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    PlotWindow(QWidget *parent = nullptr);
+    ~PlotWindow();
     QCPItemTracer *tracer;
     QCPItemText *tracerLabel;
 
 private:
-    Ui::MainWindow *ui;
+    Ui::PlotWindow *ui;
 
 };
 
-#endif // MAINWINDOW__H
+#endif // PLOTWINDOW__H
 
 
 

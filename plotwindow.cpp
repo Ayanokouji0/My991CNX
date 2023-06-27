@@ -1,25 +1,28 @@
 
-#include "mainwindow_.h"
-#include "ui_mainwindow_.h"
+#include "plotwindow.h"
+#include "ui_plotwindow.h"
 
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+PlotWindow::PlotWindow(QWidget *parent)
+    : QWidget(parent)
+    , ui(new Ui::PlotWindow)
 {
     ui->setupUi(this);
     customplot=ui->customPlot;
-
+    setWindowFlags(Qt::Window);
+	//设置窗口大小
+	setFixedSize(QSize(600, 400));
 
 }
 
-MainWindow::~MainWindow()
+PlotWindow::~PlotWindow()
 {
     delete ui;
 }
 
-void MainWindow::mouseMove(QMouseEvent *e)
+void PlotWindow::mouseMove(QMouseEvent *e)
 {
+    
     //获得鼠标位置处对应的横坐标数据x
     double x = customplot->xAxis->pixelToCoord(e->pos().x());
 
@@ -33,5 +36,5 @@ void MainWindow::mouseMove(QMouseEvent *e)
     tracerLabel->setText(QString("x = %1, y = %2").arg(xValue).arg(yValue));
 
     customplot->replot(); //重绘
-    connect(customplot, SIGNAL(mouseMove(QMouseEvent*)), this, SLOT(mouseMove1(QMouseEvent*)));
+    connect(customplot, SIGNAL(mouseMove(QMouseEvent*)), this, SLOT(mouseMove(QMouseEvent*)));
 }
