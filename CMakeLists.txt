@@ -25,13 +25,16 @@ set(PROJECT_SOURCES
         TexSvg.cpp
         MJaxAdaptor.cpp
         exptree.cpp
+        dialog_intro.cpp
         #EvalPopUpWidget.cpp
         mainwindow.h
         TexSvg.h
         MJaxAdaptor.h
         exptree.h
+        dialog_intro.h
         #EvalPopUpWidget.h
         mainwindow.ui
+        dialog_intro.ui
         #EvalPopUpWidget.ui
         ${QRC_SOURCE_FILES}
         ${QRC_FILES}
