@@ -14,13 +14,16 @@ class MainWindow : public QMainWindow
 
 {
     Q_OBJECT
+    //新增两个槽函数，游标控制和图例曲线同步选中
     public slots:
     void mouseMove(QMouseEvent *e);
-
+    void selectionChanged();
+    //void change();
 public:
     QCustomPlot * customplot;
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    //新增变量
     QCPItemTracer *tracer;
     QCPItemText *tracerLabel;
 
