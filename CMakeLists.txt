@@ -28,6 +28,7 @@ set(PROJECT_SOURCES
         plotwindow.cpp
         plot.cpp
         qcustomplot.cpp
+        dialog_intro.cpp
         #EvalPopUpWidget.cpp
         mainwindow.h
         TexSvg.h
@@ -39,6 +40,10 @@ set(PROJECT_SOURCES
         #EvalPopUpWidget.h
         mainwindow.ui
         plotwindow.ui
+        dialog_intro.h
+        #EvalPopUpWidget.h
+        mainwindow.ui
+        dialog_intro.ui
         #EvalPopUpWidget.ui
         ${QRC_SOURCE_FILES}
         ${QRC_FILES}
