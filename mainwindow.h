@@ -50,6 +50,7 @@ public:
     QPushButton* DivPshBtn;
     QPushButton* AddPshBtn;
     QPushButton* SubPshBtn;
+    QPushButton* IntPshBtn;
     QPushButton* DelPshBtn;
     QPushButton* ACPshBtn;
     QPushButton* EvalPshBtn;

@@ -10,7 +10,7 @@ PlotWindow::PlotWindow(QWidget *parent)
     ui->setupUi(this);
     customplot=ui->customPlot;
     setWindowFlags(Qt::Window);
-	//设置窗口大小
+    setWindowTitle("Plot");
     //新增
     tracer = new QCPItemTracer(customplot); //生成游标
 
@@ -32,8 +32,7 @@ PlotWindow::PlotWindow(QWidget *parent)
     customplot->legend->setSelectableParts(QCPLegend::spItems);
     connect(customplot, SIGNAL(selectionChangedByUser()), this, SLOT(selectionChanged()));
     // connect(customplot, SIGNAL(axisDoubleClick(QCPAxis*,QCPAxis::SelectablePart,QMouseEvent*)), this, SLOT(change()));
-	setFixedSize(QSize(640, 400));
-    setWindowTitle("Plot");
+	
 
 }
 

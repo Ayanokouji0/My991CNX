@@ -1,7 +1,14 @@
 #include "exptree.h"
+#include "integral.h"
 #include <cmath>
 #include <algorithm>
 #include <sstream>
+
+double exptree::node::operator() (double x)
+{
+	return eval(x);
+}
+
 exptree::number::number(double _val, node* _parent)
 {
     parent = _parent;
@@ -19,6 +26,12 @@ std::string exptree::number::to_latex(node *selected)
         std::stringstream ss;
         ss << val;
         std::string s = ss.str();
+        auto it = s.find('e');
+        if (it != std::string::npos)
+        {
+			s.replace(it, 1, "\\times 10^{");
+			s += "}";
+		}
         return "\\color{red}{" + s + "}";
     }
     else
@@ -26,6 +39,12 @@ std::string exptree::number::to_latex(node *selected)
         std::stringstream ss;
         ss << val;
         std::string s = ss.str();
+        auto it = s.find('e');
+        if (it != std::string::npos)
+        {
+            s.replace(it, 1, "\\times 10^{");
+            s += "}";
+        }
         return s;
     }
 }
@@ -57,6 +76,11 @@ exptree::oper::oper(type _t, node* _parent)
     nodetype = _t;
     switch (nodetype)
     {
+    case exptree::intg:
+        children.push_back(new blank(this));
+        children.push_back(new blank(this));
+        children.push_back(new blank(this));
+        break;
     case exptree::add:
     case exptree::sub:
     case exptree::mul:
@@ -84,6 +108,7 @@ exptree::oper::oper(type _t, node* _parent)
 }
 double exptree::oper::eval(double x)
 {
+    double result = 0;
     switch (nodetype)
     {
     case add:
@@ -118,6 +143,14 @@ double exptree::oper::eval(double x)
         return std::sqrt(children[0]->eval(x));
     case abs:
         return std::abs(children[0]->eval(x));
+    case intg:
+        result = integral(children[0], children[1]->eval(x), children[2]->eval(x), 1e-7);
+        if (std::abs(result) < 1e-7)
+        {
+            return 0;
+        }
+        return result;
+        break;
 
     default:
         break;
@@ -148,22 +181,22 @@ std::string exptree::oper::to_latex(node *selected)
         ret = "{" + children[0]->to_latex(selected) + "}^{" + children[1]->to_latex(selected) + "}";
         break;
     case sin:
-        ret = "\\sin{" + children[0]->to_latex(selected) + "}";
+        ret = "\\sin(" + children[0]->to_latex(selected) + ")";
         break;
     case cos:
-        ret = "\\cos{" + children[0]->to_latex(selected) + "}";
+        ret = "\\cos(" + children[0]->to_latex(selected) + ")";
         break;
     case tan:
-        ret = "\\tan{" + children[0]->to_latex(selected) + "}";
+        ret = "\\tan(" + children[0]->to_latex(selected) + ")";
         break;
     case cot:
-        ret = "\\cot{" + children[0]->to_latex(selected) + "}";
+        ret = "\\cot(" + children[0]->to_latex(selected) + ")";
         break;
     case sec:
-        ret = "\\sec{" + children[0]->to_latex(selected) + "}";
+        ret = "\\sec(" + children[0]->to_latex(selected) + ")";
         break;
     case csc:
-        ret = "\\csc{" + children[0]->to_latex(selected) + "}";
+        ret = "\\csc(" + children[0]->to_latex(selected) + ")";
         break;
     case log:
         ret = "\\log_{" + children[1]->to_latex(selected) + "}{" + children[0]->to_latex(selected) + "}";
@@ -177,6 +210,9 @@ std::string exptree::oper::to_latex(node *selected)
     case abs:
         ret = "\\left|" + children[0]->to_latex(selected) + "\\right|";
         break;
+    case intg:
+        ret = "\\int_{"  +children[1]->to_latex(selected) + "}^{" + children[2]->to_latex(selected) +"}{" + children[0]->to_latex(selected) + "} \\mathrm{d} x";
+		break;
 
     default:
         break;
@@ -268,7 +304,7 @@ void exptree::next()
 		}
         else
         {
-			selected = p->parent->children[p->parent->children.size() - 1];
+			selected = p->parent->children[find(p->parent->children.begin(), p->parent->children.end(), p) + 1 - p->parent->children.begin()];
 			emit changed();
 			return;
 		}

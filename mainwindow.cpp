@@ -202,6 +202,15 @@ MainWindow::MainWindow(QWidget* parent)
 	connect(AbsPshBtn, &QPushButton::clicked,
 		m_tree, [=]() {m_tree->add_oper(exptree::abs); });
 
+	IntPshBtn = new QPushButton(this);
+	//IntPshBtn->setText("Int");
+	IntPshBtn->setFixedSize(90, 50);
+	IntPshBtn->setStyleSheet("QPushButton{image: url(:/Assets/IntPshBtn.png); border: none}"
+			"QPushButton:pressed{image: url(:/Assets/BtnPressed.png); border: none}");
+	ui->IntLayout->addWidget(IntPshBtn);
+	connect(IntPshBtn, &QPushButton::clicked,
+		m_tree, [=]() {m_tree->add_oper(exptree::intg); });
+
 	ACPshBtn = new QPushButton(this);
 	//ACPshBtn->setText("AC");
 	ACPshBtn->setFixedSize(90, 50);

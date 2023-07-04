@@ -31,6 +31,7 @@ set(PROJECT_SOURCES
         dialog_intro.cpp
         history_memory.cpp
         saveinput.cpp
+        integral.cpp
         #EvalPopUpWidget.cpp
         mainwindow.h
         TexSvg.h
@@ -42,6 +43,7 @@ set(PROJECT_SOURCES
         dialog_intro.h
         history_memory.h
         saveinput.h
+        integral.h
         #EvalPopUpWidget.h
         mainwindow.ui
         plotwindow.ui

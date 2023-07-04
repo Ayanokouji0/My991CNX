@@ -15,8 +15,11 @@ public:
     Plot(PlotWindow * parent);
     void makeplot(exptree*,PlotWindow &,bool );
     Ui::PlotWindow * ui;
-// public slots:
-//     void slot_plot(double func (double));
+    //新增变量
+    QCPItemTracer* tracer;	//游标
+    QCPItemText* textLabel;	//图标标签
+    QCPItemText* tracerLabel; //游标标签
+    QCPGraph* tracerGraph;//游标要吸附哪个graph
 };
 
 #endif // PLOT_H

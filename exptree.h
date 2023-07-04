@@ -29,6 +29,7 @@ public:
 		ln,
 		sqrt,
 		abs,
+		intg,
 		var,
 		num,
 		blk
@@ -40,6 +41,7 @@ public:
 		node* parent;
 		std::vector<node*> children;
 		virtual double eval(double x) = 0;
+		virtual double operator()(double x);
 		virtual std::string to_latex(node* selected) = 0;
 	};
 	class variable : public node
