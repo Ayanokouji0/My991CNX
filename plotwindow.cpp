@@ -12,6 +12,7 @@ PlotWindow::PlotWindow(QWidget *parent)
     setWindowFlags(Qt::Window);
 	//设置窗口大小
 	setFixedSize(QSize(640, 300));
+    setWindowTitle("Plot");
 
 }
 

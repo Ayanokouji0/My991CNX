@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(QRC_SOURCE_FILES resources.qrc)
 
-# set(CMAKE_PREFIX_PATH "D:/Qt/6.5.1/msvc2019_64")
+set(CMAKE_PREFIX_PATH "D:/Qt/6.5.1/msvc2019_64")
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets printsupport)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
@@ -29,6 +29,8 @@ set(PROJECT_SOURCES
         plot.cpp
         qcustomplot.cpp
         dialog_intro.cpp
+        history_memory.cpp
+        saveinput.cpp
         #EvalPopUpWidget.cpp
         mainwindow.h
         TexSvg.h
@@ -37,12 +39,12 @@ set(PROJECT_SOURCES
         plotwindow.h
         plot.h
         qcustomplot.h
+        dialog_intro.h
+        history_memory.h
+        saveinput.h
         #EvalPopUpWidget.h
         mainwindow.ui
         plotwindow.ui
-        dialog_intro.h
-        #EvalPopUpWidget.h
-        mainwindow.ui
         dialog_intro.ui
         #EvalPopUpWidget.ui
         ${QRC_SOURCE_FILES}

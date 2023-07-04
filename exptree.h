@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include <QtCore/QObject>
+#include <history_memory.h>
 
 class exptree : public QObject
 {
@@ -84,6 +85,7 @@ public:
 	double eval(double x);
 	std::string to_latex(node* _selected);
 	std::string to_latex();
+    History_memory* hist_mem;
 
 public slots:
 	void next();

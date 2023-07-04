@@ -384,5 +384,39 @@
         <file>MathJax/images/CloseX-31.png</file>
         <file>MathJax/images/MenuArrow-15.png</file>
         <file>main.js</file>
+        <file>Assets/ACPshBtn.png</file>
+        <file>Assets/AddPshBtn.png</file>
+        <file>Assets/AnspushButton.png</file>
+        <file>Assets/ApushButton.png</file>
+        <file>Assets/BpushButton.png</file>
+        <file>Assets/BtnPressed.png</file>
+        <file>Assets/CosPshBtn.png</file>
+        <file>Assets/CotPshBtn.png</file>
+        <file>Assets/CpushButton.png</file>
+        <file>Assets/CscPshBtn.png</file>
+        <file>Assets/DelPshBtn.png</file>
+        <file>Assets/DivPshBtn.png</file>
+        <file>Assets/EvalPshBtn.png</file>
+        <file>Assets/FracPshBtn.png</file>
+        <file>Assets/HistorypushButton.png</file>
+        <file>Assets/HvrBdr.png</file>
+        <file>Assets/LnPshBtn.png</file>
+        <file>Assets/LogPshBtn.png</file>
+        <file>Assets/MulPshBtn.png</file>
+        <file>Assets/PltPshBtn.png</file>
+        <file>Assets/PowPshBtn.png</file>
+        <file>Assets/SecPshBtn.png</file>
+        <file>Assets/SinPshBtn.png</file>
+        <file>Assets/SqrtPshBtn.png</file>
+        <file>Assets/SubPshBtn.png</file>
+        <file>Assets/TanPshBtn.png</file>
+        <file>Assets/VarPshBtn.png</file>
+        <file>Assets/AbsPshBtn.png</file>
+        <file>Assets/LeftPshBtn.png</file>
+        <file>Assets/RightPshBtn.png</file>
+        <file>Assets/intro_pushButton.png</file>
+        <file>Assets/SavepushButton.png</file>
+        <file>Assets/LineEdit.png</file>
+        <file>Assets/Background.png</file>
     </qresource>
 </RCC>

@@ -211,8 +211,8 @@ std::string exptree::blank::to_latex(node* selected)
     }
 }
 
-exptree::exptree(node &_root):root(&_root), selected(nullptr){};
-exptree::exptree(double val):root(new number(val)), selected(nullptr){};
+exptree::exptree(node &_root):root(&_root), selected(nullptr),hist_mem(new History_memory()){};
+exptree::exptree(double val):root(new number(val)), selected(nullptr),hist_mem(new History_memory()){};
 double exptree::eval(double x)
 {
     return root->eval(x);
@@ -451,6 +451,7 @@ void exptree::add_var()
 void exptree::slot_eval(double x)
 {
     double result = root->eval(x);
+    hist_mem->push_new_ans(result);
     delete root;
     root = new number(result, nullptr);
     selected = nullptr;
