@@ -16,6 +16,7 @@ class PlotWindow : public QWidget
     Q_OBJECT
     public slots:
     void mouseMove(QMouseEvent *e);
+    void selectionChanged();
 
 public:
     QCustomPlot * customplot;
