@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(QRC_SOURCE_FILES resources.qrc)
 
-set(CMAKE_PREFIX_PATH "D:/Qt/6.5.1/msvc2019_64")
+# set(CMAKE_PREFIX_PATH "D:/Qt/6.5.1/msvc2019_64")
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets printsupport)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)

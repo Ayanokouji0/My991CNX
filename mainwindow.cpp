@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget* parent)
 	plt = new Plot(pltw);
 	// connect(pltw->customplot, &QCustomPlot::mouseMove,
 	// 	this, &MainWindow::mouseMove);
-	// connect(pltw->customplot, &QCustomPlot::mousePress, 
+    // connect(pltw->customplot, &QCustomPlot::mousePress,
 
 	// svg
 	SvgW = new QSvgWidget(this);
@@ -48,6 +48,7 @@ MainWindow::MainWindow(QWidget* parent)
 	ui->LeftLayout->addWidget(LeftPshBtn);
 	connect(LeftPshBtn, &QPushButton::clicked,
 		m_tree, &exptree::prev);
+    LeftPshBtn->setShortcut(Qt::Key_Left);
 
 	RightPshBtn = new QPushButton(this);
 	//RightPshBtn->setText("->");
@@ -57,6 +58,7 @@ MainWindow::MainWindow(QWidget* parent)
 	ui->RightLayout->addWidget(RightPshBtn);
 	connect(RightPshBtn, &QPushButton::clicked,
 		m_tree, &exptree::next);
+    RightPshBtn->setShortcut(Qt::Key_Right);
 
 	FracPshBtn = new QPushButton(this);
 	//FracPshBtn->setText("Frac");
@@ -84,6 +86,7 @@ MainWindow::MainWindow(QWidget* parent)
 	ui->PowLayout->addWidget(PowPshBtn);
 	connect(PowPshBtn, &QPushButton::clicked,
 		m_tree, [=]() {m_tree->add_oper(exptree::pow); });
+    PowPshBtn->setShortcut(Qt::Key_AsciiCircum); // "^"¼ü
 
 	LogPshBtn = new QPushButton(this);
 	//LogPshBtn->setText("Log");
@@ -165,6 +168,7 @@ MainWindow::MainWindow(QWidget* parent)
 	ui->AddLayout->addWidget(AddPshBtn);
 	connect(AddPshBtn, &QPushButton::clicked,
 		m_tree, [=]() {m_tree->add_oper(exptree::add); });
+    AddPshBtn->setShortcut(Qt::Key_Plus);
 
 	SubPshBtn = new QPushButton(this);
 	//SubPshBtn->setText("-");
@@ -174,6 +178,7 @@ MainWindow::MainWindow(QWidget* parent)
 	ui->SubLayout->addWidget(SubPshBtn);
 	connect(SubPshBtn, &QPushButton::clicked,
 		m_tree, [=]() {m_tree->add_oper(exptree::sub); });
+    SubPshBtn->setShortcut(Qt::Key_Minus);
 
 	MulPshBtn = new QPushButton(this);
 	//MulPshBtn->setText("*");
@@ -183,6 +188,7 @@ MainWindow::MainWindow(QWidget* parent)
 	ui->MulLayout->addWidget(MulPshBtn);
 	connect(MulPshBtn, &QPushButton::clicked,
 		m_tree, [=]() {m_tree->add_oper(exptree::mul); });
+    MulPshBtn->setShortcut(Qt::Key_Asterisk);
 
 	DivPshBtn = new QPushButton(this);
 	//DivPshBtn->setText("/");
@@ -192,6 +198,7 @@ MainWindow::MainWindow(QWidget* parent)
 	ui->DivLayout->addWidget(DivPshBtn);
 	connect(DivPshBtn, &QPushButton::clicked,
 		m_tree, [=]() {m_tree->add_oper(exptree::div); });
+    DivPshBtn->setShortcut(Qt::Key_Slash);
 
 	AbsPshBtn = new QPushButton(this);
 	//AbsPshBtn->setText("Abs");
@@ -228,6 +235,7 @@ MainWindow::MainWindow(QWidget* parent)
 	ui->DelLayout->addWidget(DelPshBtn);
 	connect(DelPshBtn, &QPushButton::clicked,
 		m_tree, &exptree::del);
+    DelPshBtn->setShortcut(Qt::Key_Backspace);
 
 	VarPshBtn = new QPushButton(this);
 	//VarPshBtn->setText("X");
@@ -246,6 +254,7 @@ MainWindow::MainWindow(QWidget* parent)
 	ui->EvalLayout->addWidget(EvalPshBtn);
 	connect(EvalPshBtn, &QPushButton::clicked,
 		m_tree, &exptree::slot_eval);
+    EvalPshBtn->setShortcut(Qt::Key_Space);
 
 	//EvalPopUp = new EvalPopUpWidget(this);
 	//EvalPopUp->setWindowFlags(Qt::Popup);
@@ -274,6 +283,7 @@ MainWindow::MainWindow(QWidget* parent)
 		plt, [=]() {
 			plt->makeplot(m_tree, *pltw, false);
 		});
+    PltPshBtn->setShortcut(Qt::Key_P);
 
 	// line edit
 	NumEdit = new QLineEdit(this);
@@ -285,8 +295,8 @@ MainWindow::MainWindow(QWidget* parent)
 		"font-weight: bold;}");
 	//NumEdit->setAlignment(Qt::AlignRight);
 	NumEdit->setValidator(new QRegularExpressionValidator(QRegularExpression("^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$")));
-	connect(NumEdit, &QLineEdit::returnPressed,
-		m_tree, [=]() {m_tree->add_number(NumEdit->text().toDouble()); NumEdit->clear(); });
+    connect(NumEdit, &QLineEdit::returnPressed,
+            m_tree, [=]() {m_tree->add_number(NumEdit->text().toDouble()); NumEdit->clear(); NumEdit->clearFocus();});
 
 
 
@@ -304,26 +314,31 @@ MainWindow::MainWindow(QWidget* parent)
 	ui->ApushButton->setText("");
 	ui->ApushButton->setStyleSheet("QPushButton{image: url(:/Assets/ApushButton.png); border: none}"
 		"QPushButton:pressed{image: url(:/Assets/BtnPressed.png); border: none}");
+    ui->ApushButton->setShortcut(Qt::Key_A);
 
 	ui->BpushButton->setFixedSize(90, 50);
 	ui->BpushButton->setText("");
 	ui->BpushButton->setStyleSheet("QPushButton{image: url(:/Assets/BpushButton.png); border: none}"
 		"QPushButton:pressed{image: url(:/Assets/BtnPressed.png); border: none}");
+    ui->BpushButton->setShortcut(Qt::Key_B);
 
 	ui->CpushButton->setFixedSize(90, 50);
 	ui->CpushButton->setText("");
 	ui->CpushButton->setStyleSheet("QPushButton{image: url(:/Assets/CpushButton.png); border: none}"
 		"QPushButton:pressed{image: url(:/Assets/BtnPressed.png); border: none}");
+    ui->CpushButton->setShortcut(Qt::Key_C);
 
 	ui->SavepushButton->setFixedSize(90, 50);
 	ui->SavepushButton->setText("");
 	ui->SavepushButton->setStyleSheet("QPushButton{image: url(:/Assets/SavepushButton.png); border: none}"
 		"QPushButton:pressed{image: url(:/Assets/BtnPressed.png); border: none}");
+    ui->SavepushButton->setShortcut(Qt::Key_S);
 
 	ui->intro_pushButton->setFixedSize(90, 50);
 	ui->intro_pushButton->setText("");
 	ui->intro_pushButton->setStyleSheet("QPushButton{image: url(:/Assets/intro_pushButton.png); border: none}"
 		"QPushButton:pressed{image: url(:/Assets/BtnPressed.png); border: none}");
+    ui->intro_pushButton->setShortcut(Qt::Key_I);
 
 	// init
 	m_texsvg->load();
