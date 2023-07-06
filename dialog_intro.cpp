@@ -20,7 +20,8 @@ Dialog_intro::Dialog_intro(QWidget *parent) :
                        "A：a\n"
                        "B：b\n"
                        "C：c\n"
-                       "");
+                       "del：Backspace\n"
+                       "AC：Delete\n");
 }
 
 Dialog_intro::~Dialog_intro()

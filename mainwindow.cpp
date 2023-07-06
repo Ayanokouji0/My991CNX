@@ -226,6 +226,7 @@ MainWindow::MainWindow(QWidget* parent)
 	ui->ACLayout->addWidget(ACPshBtn);
 	connect(ACPshBtn, &QPushButton::clicked,
 		m_tree, &exptree::all_clear);
+    ACPshBtn->setShortcut(Qt::Key_Delete);
 
 	DelPshBtn = new QPushButton(this);
 	//DelPshBtn->setText("Del");
