@@ -11,9 +11,9 @@
 - history_memory类：
 主体是一个QVector类的my_vector，以及四个变量memory_a、memory_b、memory_c、memory_ans，同时将该类与exptree类中按下’=’触发slot_eval函数这一事件相关联，在slot_eval函数中调用history_memory类的内置函数将新结果存入my_vector中。
 - save_input类：由一个QFormLayout的指针以及三个依次对应A、B、C的QLabel和QLineEdit组成，然后通过设计getStrings函数获得输入的三个字符串。
-![History界面展示](https://github.com/Flying-dragon-boxing/My991CNX/blob/main/pictures/History%E7%95%8C%E9%9D%A2%E5%B1%95%E7%A4%BA.png)
+- ![History界面展示](https://github.com/Flying-dragon-boxing/My991CNX/blob/main/pictures/History%E7%95%8C%E9%9D%A2%E5%B1%95%E7%A4%BA.png)
 - 显示History的实现：使用QTextEdit类，从my_vector中由后往前加入计算结果，点击Save按键弹出一个窗口依次显示最近10次计算结果。
-![Save界面展示](https://github.com/Flying-dragon-boxing/My991CNX/blob/main/pictures/Save界面展示.png)
+- ![Save界面展示](https://github.com/Flying-dragon-boxing/My991CNX/blob/main/pictures/Save界面展示.png)
 - 存储与调用A、B、C、Ans四个变量的实现：使用Save键调出save_input类中的QFormLayout，在QLineEdit中对应的存入变量后面输入想要存储的数，遂调用getStrings函数获得输入三个字符串组成的QStringList，再调用history_memory类内置的函数将三个字符串转化为double类型后依次存入对应的memory变量中。Ans变量返回my_vector容器中的最后一个元素。
 
 # 小组分工
